@@ -2,7 +2,7 @@ import { ActionType } from './repositories.types';
 import { Action } from './repositoriesAction';
 
 // reducer state interface
-interface RepositoriesState {
+export interface RepositoriesState {
   loading: boolean;
 
   // If we have an error, set error message to error or
@@ -29,6 +29,7 @@ const repositoriesReducer = (state: RepositoriesState = INITIAL_STATE, action: A
     case ActionType.SEARCH_REPOSITORIES_SUCCESS:
       return {
         ...state,
+        loading: false,
         data: action.payload,
       };
 
@@ -36,6 +37,7 @@ const repositoriesReducer = (state: RepositoriesState = INITIAL_STATE, action: A
       return {
         ...state,
         error: action.payload,
+        loading: false,
       };
     default:
       return state;

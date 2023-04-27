@@ -7,12 +7,10 @@ const reducers = combineReducers({
 
 export default reducers;
 
-// NOTE - we need this built in helper since 'react-redux' library has no idea
-// about what the 'Type of Data' is inside of our redux store
-// This is saying we are creating some reducers above,
-// telling 'Typescript' to take all those Reducers functions & give us back the
-// 'TYPE' of Object whatever the function returns.
-// We are going to assign that TYPE to RootState - type alias
+// NOTE - we need this built in helper since 'useSelector' hook or react-redux library has no idea
+// about what the 'Type of Data' is inside of our redux store.
+// No information has been communicated from Redux to react-redux.
+// note - This describe what type of data inside of redux store.
 export type RootState = ReturnType<typeof reducers>;
 // Mouse over RootState
 // We are going to have an root object 'global state' with our reducers
